@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div class="container">
-	<div class="row"><h1>Trainingsplan für den Regensburg Marathon 2019</h1></div>
+	<div class="row"><h1>Trainingsplan für den Generali München Marathon 2019</h1></div>
 	<!-- <p>für Simon Fink und Mathias Ferstl</br>Dieser Plan ist als Ansporn gedacht, ihr seid gar nicht so faul ;-)</p> -->
 	<div class="row"><p id="countdown" style="color:gray;font-size:150%;font-weight:bold"></p></div>
 	<div class="row">Fortschritt: 
@@ -220,12 +220,12 @@
 	
 	<script>
 	
-	var dateMarathon = new Date(2019,6,2,8,30,0,0).getTime();
+	var dateMarathon = new Date(2019,09,13,10,0,0,0);
 	
 	function countdown(){
 		var dateNow = new Date().getTime();
 		
-		var TimeRemainig = dateMarathon - dateNow;
+		var TimeRemainig = dateMarathon.getTime() - dateNow;
 		// Time calculations for days, hours, minutes and seconds
 		var days = Math.floor(TimeRemainig / (1000 * 60 * 60 * 24));
 		var hours = Math.floor((TimeRemainig % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -254,13 +254,12 @@
 	setInterval(function(){countdown()},1000);
 	
 	// set dates
-	var dm = new Date(2019,5,2,8,30,0,0);
-	dm.setDate(dm.getDate() - 12*7);
+	dateMarathon.setDate(dateMarathon.getDate() - 12*7);
 	
 	for (i = 1; i < 12*7+1; i++) {
-		dm.setDate(dm.getDate()+1);
-		var Datum = dm.getDate()+"."+ (dm.getMonth()+1) +"."+dm.getFullYear();
-		console.log(dm.toString());
+		dateMarathon.setDate(dateMarathon.getDate()+1);
+		var Datum = dateMarathon.getDate()+"."+ (dateMarathon.getMonth()+1) +"."+dateMarathon.getFullYear();
+		console.log(dateMarathon.toString());
 		document.getElementById("date" + i).innerHTML = Datum;
 	}
 	// progress bar
